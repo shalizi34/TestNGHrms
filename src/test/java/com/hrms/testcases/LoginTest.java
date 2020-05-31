@@ -1,7 +1,7 @@
 package com.hrms.testcases;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.Assert;
 
 import com.hrms.utils.CommonMethods;
 import com.hrms.utils.ConfigsReader;
@@ -10,7 +10,6 @@ public class LoginTest extends CommonMethods {
 
 	@Test(groups="smoke")
 	public void validAdminLogin() {
-		// LoginPageElements login = new LoginPageElements();
 		sendText(login.username, ConfigsReader.getProperty("username"));
 		sendText(login.password, ConfigsReader.getProperty("password"));
 		click(login.loginBtn);
@@ -29,7 +28,7 @@ public class LoginTest extends CommonMethods {
 		sendText(login.password, "uiuguig");
 		click(login.loginBtn);
 
-		String expected = "Invalid credential";
+		String expected = "Invalid credentials";
 		Assert.assertEquals(login.errorMsg.getText(), expected, "Error message text is not matched");
 	}
 
@@ -43,5 +42,4 @@ public class LoginTest extends CommonMethods {
 
 		Assert.assertEquals(login.errorMsg.getText(), expected, "Error message text is not matched");
 	}
-
 }
